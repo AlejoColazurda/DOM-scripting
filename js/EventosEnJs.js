@@ -20,12 +20,16 @@
 //     console.log('scrolling...');
 // };
 
-const btnEnviar = document.querySelector('.boton--primario');
-btnEnviar.addEventListener('click', function(evento){
-    console.log(evento);
-    evento.preventDefault();//previene el evento natural a lo que se asocie, por ejemplo en este caso hace que el formulario no se envie. Podríamos usarlo para que se verifique que todos los campos del formulario estan completos.
-    console.log('Enviando...');
-});
+//seleccionar elementos y asociarles un evento
+// const btnEnviar = document.querySelector('.boton--primario');
+// btnEnviar.addEventListener('click', function(evento){
+//     console.log(evento);
+//     evento.preventDefault();//previene el evento natural a lo que se asocie, por ejemplo en este caso hace que el formulario no se envie. Podríamos usarlo para que se verifique que todos los campos del formulario estan completos.
+//     console.log('Enviando...');
+// });
+
+
+
 
 //Eventos de los Inputs y textarea
 
@@ -39,10 +43,17 @@ const datos = {
 const nombre = document.querySelector('#nombre');
 const email = document.querySelector('#email');
 const mensaje = document.querySelector('#mensaje');
+const formulario = document.querySelector('.formulario');
+
 
 nombre.addEventListener('input', leerTexto);
 email.addEventListener('input', leerTexto);
 mensaje.addEventListener('input', leerTexto);
+//validar un formulario
+formulario.addEventListener('submit', function(evento){
+    evento.preventDefault();
+    console.log('Enviando Formulario.');
+});
 
 
 function leerTexto(e){
@@ -50,3 +61,5 @@ function leerTexto(e){
 
     console.log(datos);
 }
+
+
