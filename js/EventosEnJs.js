@@ -19,3 +19,14 @@ Console.log(5);
 window.onscroll = function(){
     console.log('scrolling...');
 };
+
+const btnEnviar = document.querySelector('.boton--orimario');
+btnEnviar.addEventListener('click', function(evento){
+    console.log(evento);
+    evento.preventDefault();//previene el evento natural a lo que se asocie, por ejemplo en este caso hace que el formulario no se envie. Podríamos usarlo para que se verifique que todos los campos del formulario estan completos.
+    
+
+
+
+    console.log('Enviando...');
+});
