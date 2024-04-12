@@ -58,13 +58,13 @@ formulario.addEventListener('submit', function(evento){
     const {nombre, email, mensaje} = datos;
 
     if(nombre === '' || email === '' || mensaje === ''){
-        mostrarError('Todos los campos son obligatorios.');
+        mostrarAlerta('Todos los campos son obligatorios.', true);
 
         return; //corta la ejecucion dde codigo.
     }
 
     //Crear la alerta de enviar mensaje
-    mostrarMensaje('Mensaje enviado correctamente');
+    mostrarAlerta('Mensaje enviado correctamente');
 
 
 });
@@ -76,11 +76,16 @@ function leerTexto(e){
     //console.log(datos);
 }
 
-//Muestra una alerta de que se envio correctamente
-function mostrarMensaje(mensaje){
-    const alerta= document.createElement('p');
+//CREANDO UN VALIDADOR DE FORMULARIOS 2 DE 2.
+function mostrarAlerta(mensaje, error = null) {
+    const alerta = document.createElement('p');
     alerta.textContent = mensaje;
-    alerta.classList.add('correcto');
+
+    if(error){
+        alerta.classList.add('error');
+    }else{
+        alerta.classList.add('correcto');
+    }
 
     formulario.appendChild(alerta);
 
@@ -88,22 +93,6 @@ function mostrarMensaje(mensaje){
     setTimeout(()=>{
         alerta.remove();
     }, 5000);
-}
-
-
-
-//Muestra un Error en pantalla
-function mostrarError(mensaje){
-    const error = document.createElement('P');
-    error.textContent = mensaje;
-    error. classList.add('error');
-
-    formulario.appendChild(error)
-
-    //Desaparece despues de 5 segundos
-    setTimeout(()=>{
-        error.remove();
-    }, 5000);
-}
+}//Reduce de dos funciones semejantes a una simple que cumple con lo necesario.
 
 
